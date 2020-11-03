@@ -7,6 +7,7 @@ class CoffeeMachine {
     portionEspresso;
     portionDoubleEspresso;
     portionWater;
+    isEnought = true;
 
     constructor(capacityCoffee,
         capacityWater,
@@ -22,13 +23,12 @@ class CoffeeMachine {
         this.portionWater = portionWater;
         this.water = capacityWater;
         this.coffee = capacityCoffee;
-
     }
 
     makeAmericano() {
-        if (checkComponents(this.portionAmericano)) {
-            this.water -= this.portionWater;
-            this.coffee -= this.portionAmericano;
+        if (checkComponents(portionAmericano)) {
+            water -= portionWater;
+            coffee -= portionAmericano;
         };
     };
 
@@ -47,13 +47,15 @@ class CoffeeMachine {
     };
 
     checkComponents(portionCoffee) {
-        isEnought = true;
-        if (this.water - this.portionWater < 0) {
+        let isEnought = true;
+        console.log(this.portionCoffee);
+
+        if (this.water - portionWater < 0) {
             alert("Не достаточно воды для приготовления кофе. Необходимо залить воду в бак!");
             isEnought = false;
         }
 
-        if (this.coffee - this.portionCoffee < 0) {
+        if (coffee - portionCoffee < 0) {
             alert("Не достаточно кофе в машине. Необходимо добвить кофе в машину!");
             isEnought = false;
         }
@@ -92,3 +94,9 @@ class CoffeeMachine {
 
 
 let coffeeMachine = new CoffeeMachine(100, 5000, 5, 7, 14, 200);
+console.log(coffeeMachine);
+
+function makeAmericano() {
+    coffeeMachine.makeAmericano();
+    alert("Americano is ready!")
+}
