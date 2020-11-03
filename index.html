@@ -10,7 +10,6 @@
             background-color: black;
             color: white;
             min-width: 650px;
-            display: flex;
         }
         
         img {
@@ -19,15 +18,25 @@
             margin: 10px;
         }
         
+        body>div>div {
+            display: flex;
+        }
+        
         body>div {
             display: flex;
+        }
+        
+        .allContainer>div {
+            margin: 5px;
+            border: 2px solid rgb(80, 43, 0);
         }
         
         .container {
             font-size: 24px;
             padding: 15px;
-            margin: 10px;
+            margin: 5px;
             text-align: center;
+            border: 2px solid rgb(80, 43, 0);
         }
         
         #containerCoffee,
@@ -70,6 +79,8 @@
             }
             .buttons {
                 margin: 5px;
+                border: 2px solid rgb(80, 43, 0);
+                padding-left: 30px;
             }
             .buttons>.button {
                 margin: 10px;
@@ -92,37 +103,51 @@
         .glow-on-hover:hover {
             border: 2px solid white;
         }
+        
+        .displayInformation {
+            color: white;
+            height: 80px;
+            padding: 10px;
+            font-size: 18px;
+        }
     </style>
 </head>
 
 <body>
-    <div class="allContainer">
-        <img src="coffee-machine.png" />
+    <div>
+        <div class="allContainer">
+            <div>
+                <img src="coffee-machine.png" />
+                <div class="displayInformation">Information</div>
+            </div>
+            <div class="container">
+                <div>
+                    <div class="text">Coffee</div>
+                    <div class="text">1000 гр.</div>
+                    <div id="containerCoffee"></div>
+                </div>
 
+                <div>
+                    <div class="text">Water</div>
+                    <div class="text">5000 мл.</div>
+                    <div id="containerWater"></div>
+                </div>
+            </div>
+        </div>
         <div>
-            <div class="container">
-                <div class="text">Coffee</div>
-                <div class="text">1000 гр.</div>
-                <div id="containerCoffee"></div>
-            </div>
+            <form class="buttons">
+                <input type="button" value="Make Americano" class="button glow-on-hover" onclick="makeAmericano1()"></input>
+                <input type="button" value="Make Espresso" class="button glow-on-hover" onclick="makeEspresso1()"></input>
+                <input type="button" value="Make DoubleEspresso" class="button glow-on-hover" onclick="makeDoubleEspresso1()"></input>
 
-            <div class="container">
-                <div class="text">Water</div>
-                <div class="text">5000 мл.</div>
-                <div id="containerWater"></div>
-            </div>
+                <input type="button" value="Charge Coffee" class="button glow-on-hover" onclick="coffeeMachine.chargeCoffee()"></input>
+                <input type="button" value="Charge Water" class="button glow-on-hover" onclick="coffeeMachine.chargeWater()"></input>
+                <input type="button" value="Information" class="button glow-on-hover" onclick="coffeeMachine.information()"></input>
+            </form>
         </div>
     </div>
 
-    <form class="buttons">
-        <input type="button" value="Make Americano" class="button glow-on-hover" onclick="makeAmericano1()"></input>
-        <input type="button" value="Make Espresso" class="button glow-on-hover" onclick="makeEspresso1()"></input>
-        <input type="button" value="Make DoubleEspresso" class="button glow-on-hover" onclick="makeDoubleEspresso1()"></input>
 
-        <input type="button" value="Charge Coffee" class="button glow-on-hover" onclick="chargeCoffee()"></input>
-        <input type="button" value="Charge Water" class="button glow-on-hover" onclick="chargeWater()"></input>
-        <input type="button" value="Information" class="button glow-on-hover" onclick="information()"></input>
-    </form>
 
     <script src="script.js"></script>
 </body>

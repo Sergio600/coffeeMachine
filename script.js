@@ -67,25 +67,40 @@ class CoffeeMachine {
 
     // }
 
-    // chargeWater() {
-    //     if (this.water == this.capacityWater) {
-    //         alert("Бак с водой полон, заправка не требуется!");
-    //         return
-    //     }
-    //     let addedWater = this.capacityWater - this.water;
-    //     this.water = this.capacityWater;
-    //     alert("Залито: " + addedWater + "мл. воды. Бак полный.");
-    // }
+    chargeWater() {
+        if (this.water == this.capacityWater) {
+
+            displayInformation.innerHTML = "Бак с водой полон, </br>заправка не требуется!";
+            return
+        }
+        let addedWater = this.capacityWater - this.water;
+        this.water = this.capacityWater;
+
+
+        displayInformation.innerHTML = "Залито: " + addedWater + "мл. воды. </br>Бак полный.";
+    }
 
     chargeCoffee() {
         if (this.coffee == this.capacityCoffee) {
-            alert("Контейнер с кофе полон!");
+
+            displayInformation.innerHTML = "Контейнер с кофе полон!";
             return
         }
         let addedCoffee = this.capacityCoffee - this.coffee;
         this.coffee = this.capacityCoffee;
-        alert("Добавлено: " + addedCoffee + "гр. кофе. Контейнер полный.");
+
+
+        displayInformation.innerHTML = "Добавлено: " + addedCoffee + "гр. кофе. </br> Контейнер полный.";
     }
+
+    information() {
+        displayInformation.innerHTML = `Приготовлено: 
+        </br>${this.countCupsAmericano} чашек Americano, 
+        </br>${this.countCupsEspresso} чашкa Espresso,
+        </br> ${this.countCupsDoubleEspresso} чашек Double Espresso`;
+    }
+
+
 
     getWater() {
         return water;
@@ -107,8 +122,11 @@ class CoffeeMachine {
 }
 
 
+
+
+
 let coffeeMachine = new CoffeeMachine(100, 5000, 5, 7, 14, 200);
-console.log(coffeeMachine);
+let displayInformation = document.getElementsByClassName("displayInformation")[0];
 
 
 function makeAmericano1() {
@@ -119,9 +137,10 @@ function makeAmericano1() {
         coffeeMachine.setCoffee(portionCoffee);
         coffeeMachine.setWater(portionWater);
         coffeeMachine.countCupsAmericano++;
-        alert("Американо готов!");
+
+        displayInformation.innerHTML = "Американо готов!";
+
     };
-    console.log(coffeeMachine);
 }
 
 function makeEspresso1() {
@@ -132,9 +151,9 @@ function makeEspresso1() {
         coffeeMachine.setCoffee(portionCoffee);
         coffeeMachine.setWater(portionWater);
         coffeeMachine.countCupsEspresso++;
-        alert("Espresso готов!");
+
+        displayInformation.innerHTML = "Espresso готов!";
     };
-    console.log(coffeeMachine);
 }
 
 function makeDoubleEspresso1() {
@@ -145,36 +164,15 @@ function makeDoubleEspresso1() {
         coffeeMachine.setCoffee(portionCoffee);
         coffeeMachine.setWater(portionWater);
         coffeeMachine.countCupsDoubleEspresso++;
-        alert("DoubleEspresso готов!");
+
+        displayInformation.innerHTML = "DoubleEspresso готов!";
     };
-    console.log(coffeeMachine);
+
 }
 
-function chargeWater() {
-    if (coffeeMachine.water == coffeeMachine.capacityWater) {
-        alert("Бак с водой полон, заправка не требуется!");
-        return
-    }
-    let addedWater = coffeeMachine.capacityWater - coffeeMachine.water;
-    coffeeMachine.water = coffeeMachine.capacityWater;
-    alert("Залито: " + addedWater + "мл. воды. Бак полный.");
-}
 
-function chargeCoffee() {
-    if (coffeeMachine.coffee == coffeeMachine.capacityCoffee) {
-        alert("Контейнер с кофе полон!");
-        return
-    }
-    let addedCoffee = coffeeMachine.capacityCoffee - coffeeMachine.coffee;
-    coffeeMachine.coffee = coffeeMachine.capacityCoffee;
-    alert("Добавлено: " + addedCoffee + "гр. кофе. Контейнер полный.");
-}
 
-function information() {
-    alert(`Приготовлено: ${coffeeMachine.countCupsAmericano} чашек Americano, 
-Приготовлено: ${coffeeMachine.countCupsEspresso} чашек Espresso,
-Приготовлено: ${coffeeMachine.countCupsDoubleEspresso} чашек Double Espresso`);
-}
+
 
 
 function checkComponents(coffeeMachine, portionCoffee, portionWater) {
@@ -195,3 +193,30 @@ function checkComponents(coffeeMachine, portionCoffee, portionWater) {
     return isEnought;
 
 }
+
+
+
+
+
+
+
+
+// function chargeWater() {
+//     if (coffeeMachine.water == coffeeMachine.capacityWater) {
+//         alert("Бак с водой полон, заправка не требуется!");
+//         return
+//     }
+//     let addedWater = coffeeMachine.capacityWater - coffeeMachine.water;
+//     coffeeMachine.water = coffeeMachine.capacityWater;
+//     alert("Залито: " + addedWater + "мл. воды. Бак полный.");
+// }
+
+// function chargeCoffee() {
+//     if (coffeeMachine.coffee == coffeeMachine.capacityCoffee) {
+//         alert("Контейнер с кофе полон!");
+//         return
+//     }
+//     let addedCoffee = coffeeMachine.capacityCoffee - coffeeMachine.coffee;
+//     coffeeMachine.coffee = coffeeMachine.capacityCoffee;
+//     alert("Добавлено: " + addedCoffee + "гр. кофе. Контейнер полный.");
+// }
