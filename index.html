@@ -8,11 +8,14 @@
     <style>
         body {
             background-color: black;
+            min-width: 650px;
+            display: flex;
         }
         
         img {
-            width: 400px;
-            height: 400px;
+            width: 500px;
+            height: 500px;
+            margin: 10px;
         }
         
         body>div {
@@ -20,17 +23,17 @@
         }
         
         .container {
-            background: lightcoral;
-            font-size: 36px;
-            padding: 40px;
-            display: inline-block;
-            margin: 20px;
+            color: white;
+            font-size: 24px;
+            padding: 15px;
+            margin: 10px;
+            text-align: center;
         }
         
         #containerCoffee,
         #containerWater {
             background: brown;
-            height: 200px;
+            height: 150px;
             width: 100px;
         }
         
@@ -39,11 +42,42 @@
         }
         
         .button {
-            margin: 20px;
+            margin: 15px 10px;
+        }
+        
+        .buttons {
+            width: 200px;
+            margin: 40px;
+        }
+        
+        @media screen and (max-width:850px) {
+            .allcontainer {
+                width: 800px;
+            }
+            img {
+                width: 300px;
+                height: 300px;
+            }
+            #containerCoffee,
+            #containerWater {
+                height: 90px;
+                width: 60px;
+                margin: 5px;
+                font-size: 16px;
+            }
+            .text {
+                font-size: 16px;
+            }
+            .buttons {
+                margin: 5px;
+            }
+            .buttons>.button {
+                margin: 10px;
+            }
         }
         
         .glow-on-hover {
-            width: 220px;
+            width: 150px;
             height: 50px;
             border: none;
             outline: none;
@@ -116,24 +150,24 @@
 
         <div>
             <div class="container">
-                <div id="textCoffee">Coffee</div>
-                <div id="">1000 гр.</div>
+                <div class="text">Coffee</div>
+                <div class="text">1000 гр.</div>
                 <div id="containerCoffee"></div>
             </div>
 
             <div class="container">
-                <div id="textWater">Water</div>
-                <div id="">5000 мл.</div>
+                <div class="text">Water</div>
+                <div class="text">5000 мл.</div>
                 <div id="containerWater"></div>
             </div>
         </div>
     </div>
-    <form>
 
+    <form class="buttons">
         <button class="button glow-on-hover" onclick="makeAmericano()">Make Americano</button>
         <button class="button glow-on-hover" onclick="makeEspresso()">Make Espresso</button>
         <button class="button glow-on-hover" onclick="makeDoubleEspresso()">Make DoudleEspresso</button>
-        <br>
+
         <button class="button glow-on-hover" onclick="chargeCoffee()">Charge Coffee</button>
         <button class="button glow-on-hover" onclick="chargeWater()">Charge Water</button>
 
