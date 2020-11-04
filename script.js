@@ -126,7 +126,10 @@ class CoffeeMachine {
 
 
 let coffeeMachine = new CoffeeMachine(100, 5000, 5, 7, 14, 200);
+
 let displayInformation = document.getElementsByClassName("displayInformation")[0];
+let coffeeInformation = document.getElementsByClassName("text")[1];
+let waterInformation = document.getElementsByClassName("text")[3];
 
 
 function makeAmericano1() {
@@ -139,6 +142,8 @@ function makeAmericano1() {
         coffeeMachine.countCupsAmericano++;
 
         displayInformation.innerHTML = "Американо готов!";
+        waterInformation.innerHTML = coffeeMachine.water + " мл.";
+        coffeeInformation.innerHTML = coffeeMachine.coffee + " гр."
 
     };
 }
@@ -153,6 +158,8 @@ function makeEspresso1() {
         coffeeMachine.countCupsEspresso++;
 
         displayInformation.innerHTML = "Espresso готов!";
+        waterInformation.innerHTML = coffeeMachine.water + " мл.";
+        coffeeInformation.innerHTML = coffeeMachine.coffee + " гр."
     };
 }
 
@@ -166,9 +173,14 @@ function makeDoubleEspresso1() {
         coffeeMachine.countCupsDoubleEspresso++;
 
         displayInformation.innerHTML = "DoubleEspresso готов!";
+
+        waterInformation.innerHTML = coffeeMachine.water + " мл.";
+        coffeeInformation.innerHTML = coffeeMachine.coffee + " гр."
     };
 
 }
+
+function waterCoffeeInformation()
 
 
 
@@ -178,16 +190,16 @@ function makeDoubleEspresso1() {
 function checkComponents(coffeeMachine, portionCoffee, portionWater) {
 
     let isEnought = true;
-    console.log(portionWater);
-    console.log(portionCoffee);
 
     if (coffeeMachine.water - portionWater < 0) {
-        alert("Не достаточно воды для приготовления кофе. Необходимо залить воду в бак!");
+
+        displayInformation.innerHTML = "Не достаточно воды для приготовления кофе. </br>Необходимо залить воду в бак!";
         isEnought = false;
     }
 
     if (coffeeMachine.coffee - portionCoffee < 0) {
-        alert("Не достаточно кофе в машине. Необходимо добвить кофе в машину!");
+        displayInformation.innerHTML = "Не достаточно кофе в машине.  </br>Необходимо добвить кофе в машину!";
+
         isEnought = false;
     }
     return isEnought;
