@@ -78,6 +78,7 @@ class CoffeeMachine {
 
 
         displayInformation.innerHTML = "Залито: " + addedWater + "мл. воды. </br>Бак полный.";
+        waterCoffeeInformation()
     }
 
     chargeCoffee() {
@@ -91,6 +92,7 @@ class CoffeeMachine {
 
 
         displayInformation.innerHTML = "Добавлено: " + addedCoffee + "гр. кофе. </br> Контейнер полный.";
+        waterCoffeeInformation()
     }
 
     information() {
@@ -142,8 +144,7 @@ function makeAmericano1() {
         coffeeMachine.countCupsAmericano++;
 
         displayInformation.innerHTML = "Американо готов!";
-        waterInformation.innerHTML = coffeeMachine.water + " мл.";
-        coffeeInformation.innerHTML = coffeeMachine.coffee + " гр."
+        waterCoffeeInformation()
 
     };
 }
@@ -158,8 +159,7 @@ function makeEspresso1() {
         coffeeMachine.countCupsEspresso++;
 
         displayInformation.innerHTML = "Espresso готов!";
-        waterInformation.innerHTML = coffeeMachine.water + " мл.";
-        coffeeInformation.innerHTML = coffeeMachine.coffee + " гр."
+        waterCoffeeInformation()
     };
 }
 
@@ -173,14 +173,16 @@ function makeDoubleEspresso1() {
         coffeeMachine.countCupsDoubleEspresso++;
 
         displayInformation.innerHTML = "DoubleEspresso готов!";
+        waterCoffeeInformation()
 
-        waterInformation.innerHTML = coffeeMachine.water + " мл.";
-        coffeeInformation.innerHTML = coffeeMachine.coffee + " гр."
     };
 
 }
 
-function waterCoffeeInformation()
+function waterCoffeeInformation() {
+    waterInformation.innerHTML = coffeeMachine.water + " мл.";
+    coffeeInformation.innerHTML = coffeeMachine.coffee + " гр."
+}
 
 
 
