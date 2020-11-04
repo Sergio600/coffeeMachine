@@ -32,22 +32,27 @@
         }
         
         .container {
-            font-size: 24px;
+            font-size: 18px;
             padding: 15px;
             margin: 5px;
             text-align: center;
-            border: 2px solid rgb(80, 43, 0);
+            border: 2px solid rgb(34, 19, 2);
+        }
+        
+        .container-2 {
+            position: absolute;
+            top: 250px;
         }
         
         #containerCoffee,
         #containerWater {
-            background: brown;
-            height: 150px;
-            width: 100px;
+            background: rgb(54, 27, 2);
+            height: 80px;
+            width: 60px;
         }
         
         #containerWater {
-            background: lightblue;
+            background: rgb(75, 141, 163);
         }
         
         .button {
@@ -57,7 +62,6 @@
         .buttons {
             width: 200px;
             margin: 5px;
-            border: 2px solid rgb(80, 43, 0);
         }
         
         @media screen and (max-width:500px) {
@@ -88,20 +92,20 @@
             .container {
                 display: flex;
                 justify-content: space-around;
-                height: 60px;
+                height: 80px;
             }
             .container>div {
                 display: flex;
                 justify-content: space-around;
             }
+            .container-2 {
+                position: relative;
+                margin-top: 0px;
+                top: 0px;
+            }
             div>.text {
                 margin: auto 10px;
                 font-size: 18px;
-            }
-            #containerCoffee,
-            #containerWater {
-                height: 60px;
-                width: 50px;
             }
             .buttons {
                 display: flex;
@@ -140,13 +144,13 @@
                 <div class="displayInformation">Information</div>
             </div>
             <div class="container">
-                <div>
+                <div class="container-1">
                     <div class="text">Coffee </div>
                     <div class="text"> 1000 гр.</div>
                     <div id="containerCoffee"></div>
                 </div>
 
-                <div>
+                <div class="container-2">
                     <div class="text">Water </div>
                     <div class="text"> 5000 мл.</div>
                     <div id="containerWater"></div>

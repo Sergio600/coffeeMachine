@@ -186,11 +186,11 @@ function waterCoffeeInformation() {
     waterInformation.innerHTML = coffeeMachine.water + " мл.";
     coffeeInformation.innerHTML = coffeeMachine.coffee + " гр.";
 
-    let levelWater = Math.round(coffeeMachine.water / coffeeMachine.capacityWater * 100);
-    let levelCoffee = Math.round(coffeeMachine.coffee / coffeeMachine.capacityCoffee * 100);
+    let levelWater = 0.8 * Math.round(coffeeMachine.water / coffeeMachine.capacityWater * 100);
+    let levelCoffee = 0.8 * Math.round(coffeeMachine.coffee / coffeeMachine.capacityCoffee * 100);
 
-    containerCoffeeVisual.style.height = levelCoffee + "%";
-    containerWaterVisual.style.height = levelWater + "%";
+    containerCoffeeVisual.style.height = levelCoffee + "px";
+    containerWaterVisual.style.height = levelWater + "px";
 }
 
 
