@@ -132,6 +132,9 @@ let coffeeMachine = new CoffeeMachine(100, 5000, 5, 7, 14, 200);
 let displayInformation = document.getElementsByClassName("displayInformation")[0];
 let coffeeInformation = document.getElementsByClassName("text")[1];
 let waterInformation = document.getElementsByClassName("text")[3];
+let containerCoffeeVisual = document.getElementById("containerCoffee");
+let containerWaterVisual = document.getElementById("containerWater");
+
 
 
 function makeAmericano1() {
@@ -181,12 +184,14 @@ function makeDoubleEspresso1() {
 
 function waterCoffeeInformation() {
     waterInformation.innerHTML = coffeeMachine.water + " мл.";
-    coffeeInformation.innerHTML = coffeeMachine.coffee + " гр."
+    coffeeInformation.innerHTML = coffeeMachine.coffee + " гр.";
+
+    let levelWater = Math.round(coffeeMachine.water / coffeeMachine.capacityWater * 100);
+    let levelCoffee = Math.round(coffeeMachine.coffee / coffeeMachine.capacityCoffee * 100);
+
+    containerCoffeeVisual.style.height = levelCoffee + "%";
+    containerWaterVisual.style.height = levelWater + "%";
 }
-
-
-
-
 
 
 function checkComponents(coffeeMachine, portionCoffee, portionWater) {
@@ -207,30 +212,3 @@ function checkComponents(coffeeMachine, portionCoffee, portionWater) {
     return isEnought;
 
 }
-
-
-
-
-
-
-
-
-// function chargeWater() {
-//     if (coffeeMachine.water == coffeeMachine.capacityWater) {
-//         alert("Бак с водой полон, заправка не требуется!");
-//         return
-//     }
-//     let addedWater = coffeeMachine.capacityWater - coffeeMachine.water;
-//     coffeeMachine.water = coffeeMachine.capacityWater;
-//     alert("Залито: " + addedWater + "мл. воды. Бак полный.");
-// }
-
-// function chargeCoffee() {
-//     if (coffeeMachine.coffee == coffeeMachine.capacityCoffee) {
-//         alert("Контейнер с кофе полон!");
-//         return
-//     }
-//     let addedCoffee = coffeeMachine.capacityCoffee - coffeeMachine.coffee;
-//     coffeeMachine.coffee = coffeeMachine.capacityCoffee;
-//     alert("Добавлено: " + addedCoffee + "гр. кофе. Контейнер полный.");
-// }
